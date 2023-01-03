@@ -1,4 +1,4 @@
-defmodule Network do
+defmodule UPNPE do
   @moduledoc """
   Documentation for `Upnp`.
   """

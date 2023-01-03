@@ -9,7 +9,7 @@ defmodule Network.SSDP.Discovery do
 
   def M_search_message do
     message =
-      "NOTIFY * HTTP/1.1\r\nHOST: 239.255.255.250:1900\r\nNT: upnp:rootdevice\r\nNTS: ssdp:alive\r\nUSN: uuid:00000000-0000-0000-0000-000000000000::upnp:rootdevice\r\nLOCATION: http://localhost:8080/description.xml\r\nCACHE-CONTROL: max-age=1800\r\nSERVER: Elixir\r\n\r\n"
+      "NOTIFY * HTTP/1.1\r\nHOST: 239.255.255.250:1900\r\nNT: upnp:rootdevice\r\nNTS: ssdp:alive\r\nUSN: uuid:00000000-0000-0000-0000-000000000000::upnpe:rootdevice\r\nLOCATION: http://localhost:8080/description.xml\r\nCACHE-CONTROL: max-age=1800\r\nSERVER: Elixir\r\n\r\n"
   end
 
   def start_link do
@@ -38,7 +38,7 @@ defmodule Network.SSDP.Discovery do
 
   defp send_notification(socket) do
     message =
-      "NOTIFY * HTTP/1.1\r\nHOST: 239.255.255.250:1900\r\nNT: upnp:rootdevice\r\nNTS: ssdp:alive\r\nUSN: uuid:00000000-0000-0000-0000-000000000000::upnp:rootdevice\r\nLOCATION: http://localhost:8080/description.xml\r\nCACHE-CONTROL: max-age=1800\r\nSERVER: Elixir\r\n\r\n"
+      "NOTIFY * HTTP/1.1\r\nHOST: 239.255.255.250:1900\r\nNT: upnp:rootdevice\r\nNTS: ssdp:alive\r\nUSN: uuid:00000000-0000-0000-0000-000000000000::upnpe:rootdevice\r\nLOCATION: http://localhost:8080/description.xml\r\nCACHE-CONTROL: max-age=1800\r\nSERVER: Elixir\r\n\r\n"
 
     :ok = :gen_udp.send(socket, multicast_address, multicast_port, message)
   end
@@ -55,7 +55,7 @@ defmodule Network.SSDP.Discovery do
 
   defp send_response(socket) do
     message =
-      "HTTP/1.1 200 OK\r\nCACHE-CONTROL: max-age=1800\r\nEXT:\r\nLOCATION: http://localhost:8080/description.xml\r\nSERVER: Elixir\r\nST: upnp:rootdevice\r\nUSN: uuid:00000000-0000-0000-0000-000000000000::upnp:rootdevice\r\n\r\n"
+      "HTTP/1.1 200 OK\r\nCACHE-CONTROL: max-age=1800\r\nEXT:\r\nLOCATION: http://localhost:8080/description.xml\r\nSERVER: Elixir\r\nST: upnp:rootdevice\r\nUSN: uuid:00000000-0000-0000-0000-000000000000::upnpe:rootdevice\r\n\r\n"
 
     :ok = :gen_udp.send(socket, multicast_address, multicast_port, message)
   end

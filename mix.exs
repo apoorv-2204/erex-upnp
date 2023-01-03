@@ -3,9 +3,13 @@ defmodule Upnp.MixProject do
 
   def project do
     [
-      app: :upnp,
+      app: :upnpe,
       version: "0.1.0",
       elixir: "~> 1.14",
+      config_path: "config/config.exs",
+      build_path: "_build",
+      deps_path: "deps",
+      lockfile: "mix.lock",
       start_permanent: Mix.env() == :prod,
       deps: deps()
     ]
@@ -15,6 +19,7 @@ defmodule Upnp.MixProject do
   def application do
     [
       extra_applications: [:logger]
+      mod: {UPNPE.Application, []}
     ]
   end
 
@@ -23,6 +28,7 @@ defmodule Upnp.MixProject do
     [
       # {:dep_from_hexpm, "~> 0.3.0"},
       # {:dep_from_git, git: "https://github.com/elixir-lang/my_dep.git", tag: "0.1.0"}
+      {:credo, "~> 1.6", only: [:dev, :test], runtime: false}
     ]
   end
 end

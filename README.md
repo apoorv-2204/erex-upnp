@@ -10,7 +10,7 @@ by adding `upnp` to your list of dependencies in `mix.exs`:
 ```elixir
 def deps do
   [
-    {:upnp, "~> 0.1.0"}
+    {:upnpe, "~> 0.1.0"}
   ]
 end
 ```
