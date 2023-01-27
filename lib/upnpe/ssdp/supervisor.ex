@@ -14,6 +14,6 @@ defmodule SSDP.Supervisor do
 
     # supervise(children, strategy: :one_for_one)
 
-    chil
+    children = [{SSDP.Client, []}]
   end
 end

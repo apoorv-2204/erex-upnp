@@ -1,17 +1,12 @@
 defmodule SSDP.Client do
   use GenServer
   require Logger
-  import SweetXml
+  # import SweetXml
 
   @port 1900
   @multicast_ip {239, 255, 255, 250}
-
-  defmodule State do
-    defstruct udp: nil,
-              devices: [],
-              handlers: [],
-              port: nil
-  end
+  @multicast_ip_string "239.255.255.250"
+  @multicast_port "1900"
 
   def discover_messages do
     [
